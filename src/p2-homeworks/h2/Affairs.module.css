@@ -1,0 +1,27 @@
+.hw2{
+    display: flex;
+    justify-content: center;
+}
+.affairs{
+    margin-bottom: 20px;
+}
+.affair{
+    text-align: center;
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.affair > div {
+    flex: 0 0 33.333%;
+}
+.affair__priority{
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+.buttons{
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+    margin-left: -35px;
+}
