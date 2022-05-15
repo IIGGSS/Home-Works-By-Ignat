@@ -1,0 +1,13 @@
+.hw6{
+    text-align: center;
+}
+.span__wrapper{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.buttons__wrapper{
+    display: flex;
+    width: 200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}

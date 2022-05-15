@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import SuperEditableSpan from './common/c4-SuperEditableSpan/SuperEditableSpan'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 import {restoreState, saveState} from './localStorage/localStorage'
+import s from './styles.module.css';
+import EditIcon from '@mui/icons-material/Edit';
 
 function HW6() {
     const [value, setValue] = useState<string>('')
@@ -10,7 +12,7 @@ function HW6() {
         saveState<string>('editable-span-value', value)
     }
     const restore = () => {
-        // setValue()
+        setValue(restoreState<string>('editable-span-value', value));
     }
 
     return (
@@ -19,20 +21,28 @@ function HW6() {
             homeworks 6
 
             {/*should work (должно работать)*/}
-            <div>
-                <SuperEditableSpan
-                    value={value}
-                    onChangeText={setValue}
-                    spanProps={{children: value ? undefined : 'enter text...'}}
-                />
+            <div className={s.hw6}>
+                <div className={s.span__wrapper}>
+                    <EditIcon/>
+                    <SuperEditableSpan
+                        value={value}
+                        onChangeText={setValue}
+                        spanProps={{children: value ? undefined : 'enter text...'}}
+                    />
+                </div>
+                <div className={s.buttons__wrapper}>
+                <SuperButton onClick={save}>
+                    save
+                </SuperButton>
+                <SuperButton onClick={restore}>
+                    restore
+                </SuperButton>
+                </div>
+                <hr/>
+                {/*для личного творчества, могу проверить*/}
+                {/*<AlternativeSuperEditableSpan/>*/}
+                <hr/>
             </div>
-            <SuperButton onClick={save}>save</SuperButton>
-            <SuperButton onClick={restore}>restore</SuperButton>
-
-            <hr/>
-            {/*для личного творчества, могу проверить*/}
-            {/*<AlternativeSuperEditableSpan/>*/}
-            <hr/>
         </div>
     )
 }
