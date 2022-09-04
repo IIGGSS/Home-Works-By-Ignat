@@ -1,14 +1,23 @@
-const initState = {
-
+interface loadingAcInterface {
+    type: 'ON'
 }
 
-export const loadingReducer = (state = initState, action: any): any => { // fix any
+const initState: boolean = false;
+
+export const loadingReducer = (state = initState, action: loadingAcInterface): boolean => { // fix any
     switch (action.type) {
-        case '': {
-            return state
+        case "ON": {
+            return !state;
         }
-        default: return state
+        default:
+            return state
     }
 }
 
-export const loadingAC = (): any => {} // fix any
+
+export const loadingAC = (): loadingAcInterface => {
+    return {
+        type: 'ON'
+    } as const
+
+} // fix any
